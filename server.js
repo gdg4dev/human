@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const fetch = require("node-fetch");
 
 app.use(bodyParser.json());
+// try to use app.use(express.json())
+// it was supported in previous versions of express 
 
 app.post("/backend/technology", (req, res) => {
   fetch('http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=1df02f86f8594f81bf88d129c3f2094f')
@@ -48,6 +50,4 @@ app.post("/backend/business", (req, res) => {
 });
 
 const port = 8000;
-app.listen(port, () => {
-    console.log(`HUMAN SERVER IS UP AND RUNNING AT PORT ${port}`)
-});
+app.listen(port, () => console.log(`HUMAN SERVER IS UP AND RUNNING AT PORT ${port}`));
